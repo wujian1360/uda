@@ -1,11 +1,14 @@
-scores = {
-             "Rick Sanchez": 70,
-             "Morty Smith": 35,
-             "Summer Smith": 82,
-             "Jerry Smith": 23,
-             "Beth Smith": 98
-          }
+def triangles(max):
+    line = [1]
+    time = 0
+    while time <= max:
+        yield(line.copy())
+        for i in range(len(line)-1, 0, -1):
+            line[i] += line[i-1]
+        line.append(1)
+        time += 1
 
-passed = list({k for k, v in scores.items() if v >= 65})
-print(passed)
+# 以下是测试代码       
 
+for t in triangles(10):
+    print(t)
